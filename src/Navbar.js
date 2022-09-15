@@ -7,7 +7,7 @@ const NavigationBar = (props) => {
     <div>
       <Navbar color="faded" light className="navBar">
         <NavbarBrand href="/" className="mr-auto">
-          <FiDatabase></FiDatabase> Convert Data to Chart
+          <FiDatabase></FiDatabase> React Grid Dashboard
         </NavbarBrand>
       </Navbar>
     </div>
