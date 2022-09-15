@@ -4,18 +4,21 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 import Widget from "./Widget";
 import { RiDragMove2Fill } from "react-icons/ri";
 import exportToPdf from "./exportToPdf";
+import useSaveLayoutOnChange from "./useSaveLayoutOnChange";
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
-const default_Layout = {
-  widgets: [{ id: 1 }],
-  widgetSequence: 1,
-  layouts: {}
-};
-const originalLayouts = getFromLS("Layout") || default_Layout;
+
 
 function Grid() {
 
-  const [layoutState, setLayoutState] = useState(originalLayouts)
+  const default_Layout = {
+    widgets: [{ id: 1 }],
+    widgetSequence: 1,
+    layouts: {}
+  };
+
+  // const [layoutState, setLayoutState] = useState(default_Layout)
+  const [layoutState, setLayoutState] = useSaveLayoutOnChange(default_Layout)
 
   function addWidget() {
     setLayoutState(prevState => ({
@@ -34,15 +37,11 @@ function Grid() {
 
   function onLayoutChange(layout, layouts) {
     window.dispatchEvent(new Event("resize"));
-    setLayoutState(prevState=>({
+    setLayoutState(prevState => ({
       ...prevState,
       layouts: layouts
     }));
   }
-
-  useEffect(() => {
-    saveToLS("Layout", layoutState);
-  },[layoutState]);
 
 
   const config = {
@@ -106,27 +105,6 @@ function Grid() {
 
 }
 
-function getFromLS(key) {
-  let ls = {};
-  if (global.localStorage) {
-    try {
-      ls = JSON.parse(global.localStorage.getItem("rdv_layout")) || {};
-    } catch (e) {
-      console.log(e);
-    }
-  }
-  return ls[key];
-}
 
-function saveToLS(key, value) {
-  if (global.localStorage) {
-    global.localStorage.setItem(
-      "rdv_layout",
-      JSON.stringify({
-        [key]: value
-      })
-    );
-  }
-}
 
 export default Grid;
