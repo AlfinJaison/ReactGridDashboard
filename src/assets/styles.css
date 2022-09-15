@@ -1,0 +1,76 @@
+body {
+  background: #f0f3f5;
+  padding-bottom: 30px;
+}
+
+.App {
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.toolBar {
+  text-align: left;
+}
+
+.toolBar button {
+  margin: 0 5px 0 5px;
+}
+
+.widget {
+  background: white;
+  border-radius: 0.5em;
+  box-shadow: 0 0 0.7142857142857143rem #cccccc;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navBar {
+  background: white;
+  margin-bottom: 15px;
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 2px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.navBar a {
+  color: rgb(100, 100, 100) !important;
+}
+
+.closeBtn {
+  border-radius: 30px;
+  height: 30px;
+  width: 30px;
+  float: right;
+}
+
+.widgetHeader {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.dragHandle {
+  display: inline-block;
+  width: 85%;
+  cursor: move;
+  border-radius: 0.5em;
+  padding: 6px;
+  text-align: left;
+  font-size: 10px;
+  color: rgb(145, 145, 145);
+}
+
+.dragIcon {
+  font-size: 15px;
+  color: rgb(145, 145, 145);
+  margin-right: 10px;
+}
+.card {
+  border: none;
+}
+
+.chartContainer {
+  height: 300px;
+  width: 100%;
+}
