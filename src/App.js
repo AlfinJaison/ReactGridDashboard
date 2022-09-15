@@ -6,17 +6,15 @@ import { Container } from "reactstrap";
 import Grid from "./Grid";
 import NavigationBar from "./Navbar";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <NavigationBar></NavigationBar>
-        <Container fluid={true}>
-          <Grid></Grid>
-        </Container>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <NavigationBar></NavigationBar>
+      <Container fluid={true}>
+        <Grid/>
+      </Container>
+    </div>
+  );
 }
 
 export default App;

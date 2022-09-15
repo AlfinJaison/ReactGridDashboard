@@ -1,30 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 require("highcharts/modules/exporting")(Highcharts);
 
-class Charts extends React.Component {
-  constructor(props) {
-    super(props);
+function Charts({ data }) {
 
-    this.state = {
-      options: props.data
-    };
-  }
+  const [options, setOptions] = useState(data)
 
-  render() {
-    return (
-      <div>
-        <HighchartsReact
-          constructorType={"chart"}
-          highcharts={Highcharts}
-          options={this.state.options}
-          containerProps={{ className: "chartContainer" }}
-        />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <HighchartsReact
+        constructorType={"chart"}
+        highcharts={Highcharts}
+        options={options}
+        containerProps={{ className: "chartContainer" }}
+      />
+    </div>
+  );
+
 }
+
 
 export default Charts;
